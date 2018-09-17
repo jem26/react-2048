@@ -192,7 +192,7 @@ class Board extends React.Component {
             onSwipedDown={this.moveDown}
             onSwipedLeft={this.moveLeft}
             onSwipedRight={this.moveRight}
-            preventDefaultTouchmoveEvent="false" >
+            preventDefaultTouchmoveEvent="true" >
             <div className="boardContainer">
                 <div className="scoreText">Score: {this.state.score}</div>
                 <div className="row">
