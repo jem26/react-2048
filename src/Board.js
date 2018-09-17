@@ -1,6 +1,7 @@
 import React from 'react';
 import './Board.css';
 import Swipeable from 'react-swipeable';
+import cookie from 'react-cookies';
 
 const BOARD_SIZE = 4;
 
@@ -12,6 +13,7 @@ class Board extends React.Component {
             gameOver: false,
             score: 0,
             lastDirection: ' ',
+            highScore: cookie.load('highScore'),
         }
         this.placeNewRandom();
         this.placeNewRandom();
@@ -167,9 +169,10 @@ class Board extends React.Component {
 
     handleNew = () => {
         this.state.board = [[0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0]];
-        this.setState({gameOver: false})
-        this.setState({score: 0})
-        this.setState({lastDirection: ' '})
+        this.setState({gameOver: false});
+        this.setState({score: 0});
+        this.setState({lastDirection: ' '});
+        this.setState({highScore: cookie.load('highScore')});
         this.placeNewRandom();
         this.placeNewRandom();
         this.setState({board: this.state.board})
@@ -186,6 +189,10 @@ class Board extends React.Component {
     }
 
     render() {
+        if (this.state.score > this.state.highScore) {
+            cookie.save('highScore', this.state.score, { path: '/' });
+            this.setState({highScore: cookie.load('highScore')});
+        }
         return (
             <Swipeable
             onSwipedUp={this.moveUp}
@@ -195,6 +202,7 @@ class Board extends React.Component {
             preventDefaultTouchmoveEvent="true" >
             <div className="boardContainer">
                 <div className="scoreText">Score: {this.state.score}</div>
+                <div className="highScoreText">High Score: {this.state.highScore}</div>
                 <div className="row">
                     {this.renderTiles()}
                 </div>
