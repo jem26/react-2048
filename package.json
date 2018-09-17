@@ -10,7 +10,9 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-css-transition-replace": "^3.0.3",
     "react-dom": "^16.5.0",
-    "react-scripts": "1.1.5"
+    "react-easy-swipe": "0.0.16",
+    "react-scripts": "1.1.5",
+    "react-swipeable": "^4.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

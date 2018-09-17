@@ -1,5 +1,6 @@
 import React from 'react';
 import './Board.css';
+import Swipeable from 'react-swipeable';
 
 const BOARD_SIZE = 4;
 
@@ -186,6 +187,7 @@ class Board extends React.Component {
 
     render() {
         return (
+            <Swipeable onSwipedUp={this.moveUp} onSwipedDown={this.moveDown} onSwipedLeft={this.moveLeft} onSwipedRight={this.moveRight} >
             <div className="boardContainer">
                 <div className="scoreText">Score: {this.state.score}</div>
                 <div className="row">
@@ -195,6 +197,7 @@ class Board extends React.Component {
                     <button type="button" className="btn btn-outline-secondary" onClick={this.handleNew}>New Game</button>
                 </div>
             </div>
+            </Swipeable>
         );
     }
 }
