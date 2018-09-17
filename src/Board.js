@@ -15,6 +15,10 @@ class Board extends React.Component {
             lastDirection: ' ',
             highScore: cookie.load('highScore'),
         }
+        if (typeof(this.state.highScore) === 'undefined') {
+            cookie.save('highScore', 0, { path: '/' });
+            this.setState({highScore: cookie.load('highScore')});
+        }
         this.placeNewRandom();
         this.placeNewRandom();
     }
