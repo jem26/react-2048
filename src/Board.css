@@ -44,8 +44,6 @@
 .tile2 {
     background-color: rgb(255, 251, 244);
     color: rgb(117, 117, 117);
-    width: 100px;
-    height: 100px;
 }
 
 .tile4 {
@@ -76,4 +74,26 @@
 .w3-animate-zoom { 
     animation:animatezoom 0.3s}@keyframes
     animatezoom{from{transform:scale(0)} to{transform:scale(1)}
+}
+
+@media only screen and (max-width: 600px) {
+    .scoreText {
+        font-size: 20px;
+        margin-top:20px;
+    }
+    .row {
+        width:300px;
+        height:300px;
+    }
+    .col-3 {
+        width: 75px;
+        height: 75px;
+        border: 2px solid rgb(196, 196, 196);
+        font-size: 25px;
+        text-align: center;
+    }
+    .col-3 p {
+        margin-top: 15px;
+    }
+
 }
